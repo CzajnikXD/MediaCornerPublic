@@ -15,4 +15,4 @@ Aby uruchomić aplikację poprawnie należy utworzyć zmienne środowiskowe i us
 - Wyszukiwanie użytkowników w bazie danych.
 - Przeglądanie użytkowników na liście znajomych.
 - Usuwanie użytkowników z listy znajomych.
--Podgląd aktywności znajomych
+- Podgląd aktywności znajomych
