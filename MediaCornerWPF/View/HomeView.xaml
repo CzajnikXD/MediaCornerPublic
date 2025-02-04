@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="MediaCornerWPF.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediaCornerWPF.View"
+             xmlns:viewModel="clr-namespace:MediaCornerWPF.ViewModels"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Column: Currently Popular -->
+        <Border Grid.Column="0"
+                Background="#200F53"
+                CornerRadius="10" 
+                Padding="10"
+                Margin="10">
+            <StackPanel>
+                <TextBlock Text="Currently Popular" 
+                           Foreground="{StaticResource titleColor1}" 
+                           FontFamily="Montserrat" 
+                           FontSize="20" 
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,20"/>
+
+                <DataGrid ItemsSource="{Binding Movies}"
+                          AutoGenerateColumns="False"
+                          ColumnWidth="*"
+                          Background="#200F53"
+                          Foreground="{StaticResource plainTextColor3}"
+                          BorderThickness="0"
+                          HeadersVisibility="Column"
+                          IsReadOnly="True"
+                          RowHeight="23"
+                          VirtualizingStackPanel.IsVirtualizing="True"
+                          VirtualizingStackPanel.VirtualizationMode="Recycling"
+                          ScrollViewer.IsDeferredScrollingEnabled="True">
+
+                    <!-- Column Header Style -->
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Padding" Value="10,0,0,10"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
+                    <!-- Row Style -->
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="#33196A"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#836EFB"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <!-- Cell Style -->
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="{StaticResource titleColor0}" />
+                            <Setter Property="FontWeight" Value="Medium"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="Padding" Value="5,0,0,0"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+
+                    <!-- DataGrid Columns for Currently Popular -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding title}" Header="Movie Title" Width="1.6*" />
+                        <DataGridTemplateColumn Header="Add to watchlist">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.AddToWatchlistCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                            CommandParameter="{Binding}">
+                                        <TextBlock Text="Add to watchlist" 
+                                                   Foreground="{StaticResource plainTextColor4}" 
+                                                   FontFamily="Montserrat"
+                                                   FontWeight="Medium"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+
+        <!-- Right Column: Friends Activity -->
+        <Border Grid.Column="1"
+                Background="#200F53"
+                CornerRadius="10" 
+                Padding="10"
+                Margin="10">
+            <StackPanel>
+
+                <TextBlock Text="Friends activity" 
+                   Foreground="{StaticResource titleColor1}" 
+                   FontFamily="Montserrat" 
+                   FontSize="20" 
+                   FontWeight="SemiBold"
+                   Margin="0,0,0,20"/>
+
+                <DataGrid ColumnWidth="*" 
+                          Background="#200F53"
+                          AutoGenerateColumns="False" 
+                          HeadersVisibility="Column" 
+                          IsReadOnly="True" 
+                          ItemsSource="{Binding Messages}" 
+                          BorderThickness="0"
+                          RowHeight="23"
+                          VirtualizingStackPanel.IsVirtualizing="True"
+                          VirtualizingStackPanel.VirtualizationMode="Recycling"
+                          ScrollViewer.IsDeferredScrollingEnabled="True">
+
+                    <!-- Column Header Style -->
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Padding" Value="10,0,0,10"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontSize" Value="15"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
+                    <!-- Row Style -->
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="#33196A"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#836EFB"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <!-- Cell Style -->
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="{StaticResource titleColor0}" />
+                            <Setter Property="FontWeight" Value="Medium"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="Padding" Value="5,0,0,0"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+
+                    <!-- DataGrid Columns -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding msg}" Header="Recently added movies"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
