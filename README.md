@@ -1,7 +1,7 @@
 # **Aplikacja do pracy inżynierskiej służąca do zarządzania obejrzanymi filmami - Media Corner**
 ## **Poradnik uruchomienia:**
 Aby uruchomić aplikację poprawnie należy utworzyć zmienną środowiskową i ustawić do niej connection string do utworzonego clustera MongoDB\
-**MONGODB_CONNECTION_STRING = your_mongodb_connection-string-uri**
+**MONGODB_CONNECTION_STRING = your_mongodb_connection-string-uri**\
 **TMDB_API_KEY = your_tmdb_api_key**
 
 ## **Funkcjonalność Aplikacji:**
