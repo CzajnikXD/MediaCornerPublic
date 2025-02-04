@@ -5,14 +5,14 @@ Aby uruchomić aplikację poprawnie należy utworzyć zmienną środowiskową i 
 **TMDB_API_KEY = your_tmdb_api_key**
 
 ## **Funkcjonalność Aplikacji:**
-— Możliwość dodawania filmów do listy obejrzanych.
-— Usuwanie filmów z listy obejrzanych.
-— Wyświetlanie informacji o aktualnie popularnych filmach.
-— Możliwość przeglądania listy wszystkich filmów w bazie.
-— Możliwość tworzenia konta użytkownika z poziomu aplikacji.
-— Modyfikacja użytkownika z poziomu aplikacji.
-— Dodawanie innych użytkowników do listy znajomych.
-— Wyszukiwanie użytkowników w bazie danych.
-— Przeglądanie użytkowników na liście znajomych.
-— Usuwanie użytkowników z listy znajomych.
-- Podgląd aktywności znajomych
+- Możliwość dodawania filmów do listy obejrzanych.
+- Usuwanie filmów z listy obejrzanych.
+- Wyświetlanie informacji o aktualnie popularnych filmach.
+- Możliwość przeglądania listy wszystkich filmów w bazie.
+- Możliwość tworzenia konta użytkownika z poziomu aplikacji.
+- Modyfikacja użytkownika z poziomu aplikacji.
+- Dodawanie innych użytkowników do listy znajomych.
+- Wyszukiwanie użytkowników w bazie danych.
+- Przeglądanie użytkowników na liście znajomych.
+- Usuwanie użytkowników z listy znajomych.
+-Podgląd aktywności znajomych
